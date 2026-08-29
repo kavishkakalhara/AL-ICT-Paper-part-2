@@ -7,9 +7,9 @@
 
 ## 🔗 සජීවී සබැඳිය (Live)
 
-**https://cdn.jsdelivr.net/gh/kavishkakalhara/AL-ICT-Paper-part-2@v1.1/index.html**
+**https://cdn.jsdelivr.net/gh/kavishkakalhara/AL-ICT-Paper-part-2@0411988/index.html**
 
-විකල්ප: https://htmlpreview.github.io/?https://github.com/kavishkakalhara/AL-ICT-Paper-part-2/blob/arena/01a04ed5-al-ict-paper-part-2/index.html
+විකල්ප (සැමවිටම නවතම): https://htmlpreview.github.io/?https://github.com/kavishkakalhara/AL-ICT-Paper-part-2/blob/arena/01a04ed5-al-ict-paper-part-2/index.html
 
 ## 📚 අන්තර්ගතය
 
