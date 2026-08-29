@@ -1738,15 +1738,13 @@ print("ගණන:", count)</pre>
         <div class="ansbody">
           <div class="m"><b>(a) ඔප්පු කිරීම:</b>
 <pre>ĀBC + ĀBC̄ + AB̄C̄ + AB̄C + ABC
-= ĀB(C + C̄) + AB̄(C̄ + C) + ABC        [ව්‍යාප්ති / සාධාරණ සාධකය]
-= ĀB(1) + AB̄(1) + ABC                  [අනුපූරක: C + C̄ = 1]
-= ĀB + AB̄ + ABC
-= ĀB + A(B̄ + BC)                       [ව්‍යාප්තිය ප්‍රතිලෝමව]
-= ĀB + A(B̄ + C)                        [A + ĀB = A + B රටාව]
-= ĀB + AB̄ + AC  ...
-            ↓ (විකල්ප මාර්ගය — ABC පදය අවශෝෂණය කරන්න)
-ĀB + AB̄ + ABC = ĀB + AB̄ + BC          [Consensus/Redundancy: ĀB + AB̄ = ĀB + AB̄ + BC]
-∴ ĀBC + ĀBC̄ + AB̄C̄ + AB̄C + ABC = ĀB + AB̄ + BC  ∎</pre>
+= ĀB(C + C̄) + AB̄(C̄ + C) + ABC      [ව්‍යාප්තිය — පොදු සාධකය (factoring)]
+= ĀB(1) + AB̄(1) + ABC               [අනුපූරක නීතිය: C + C̄ = 1]
+= ĀB + AB̄ + ABC                     [තත්සමක නීතිය]
+= ĀB + AB̄ + ABC + ĀBC               [අවශෝෂණය: ĀB + ĀBC = ĀB → එබැවින් ĀBC එකතු කිරීමෙන් වෙනසක් නැත]
+= ĀB + AB̄ + BC(A + Ā)               [ව්‍යාප්තිය: ABC + ĀBC = BC(A + Ā)]
+= ĀB + AB̄ + BC                      [අනුපූරක + තත්සමක]
+∴ ĀBC + ĀBC̄ + AB̄C̄ + AB̄C + ABC = ĀB + AB̄ + BC    ∎</pre>
 <span class="muted">(එක් එක් නීතිය නම් කරමින් පියවරෙන් පියවර ලියන්න — සම්පූර්ණ ලකුණු ලැබේ)</span> (5)
           </div>
           <div class="m"><b>(b)(i) සත්‍යතා වගුව</b> (X=MSB, T=LSB; අගය = 4X + 2Y + T)
@@ -1768,14 +1766,25 @@ print("ගණන:", count)</pre>
 <tr><td><b>11</b></td><td>1</td><td>0</td></tr>
 <tr><td><b>10</b></td><td>1</td><td>1</td></tr>
 </tbody></table></div>
-<b>කාණ්ඩ:</b> ① (010, 110) → X̄ සහ X දෙකම ඇති නිසා X ඉවත් වේ, Y=1, T=0 → <b>YT̄</b> (2න් කාණ්ඩය)<br>
-② (100, 110) → Y=0, T=0 → <b>ȲT̄</b> — නැත, 110 දැනටමත් ① හි ඇතුළත්ය; වඩා හොඳ ආවරණය: ② (100, 101) → X=1, T=0 හා 1 → <b>XȲ</b> (2න් කාණ්ඩය)<br>
-③ (100, 110) → X=1, Y=0 හා 1, T=0 → <b>XT̄</b><br>
-<b>සරලතම විසඳුම:</b> ① (010,110) = <b>YT̄</b> ② (100,110) = <b>XT̄</b> ③ (101 හා 100) → 101 ආවරණය වී නැත → <b>XȲT</b><br>
-<b>∴ Z = XT̄ + YT̄ + XȲT</b>  (තවදුරටත්: XT̄ + YT̄ + XȲT = T̄(X + Y) + XȲT) <span class="muted">(4)</span><br>
-<span class="muted">සටහන: විකල්ප ලෙස 1 කාණ්ඩ (100, 101, 110) සහ (010, 110) ලෙස ගත් විටද සරල පිළිතුරක් ලැබේ — <b>ඔබේ K-map එකේ කාණ්ඩ පැහැදිලිව අඳින්න, පිළිතුර ඒ අනුව ලියන්න.</b></span>
+<b>කාණ්ඩ (Groups):</b><br>
+① (010, 110) → X = 0 සහ 1 දෙකම ඇත (වෙනස් වේ → X ඉවත් වේ), Y = 1, T = 0 → <b>YT̄</b> (2න් කාණ්ඩය)<br>
+② (100, 101) → X = 1, Y = 0, T = 0 සහ 1 (වෙනස් වේ → T ඉවත් වේ) → <b>XȲ</b> (2න් කාණ්ඩය)<br>
+<span class="muted">මෙම කාණ්ඩ 2 මගින් "1" ඇති සියලුම කොටු 4ම (m2, m4, m5, m6) ආවරණය වේ — වෙනත් කාණ්ඩයක් අවශ්‍ය නැත.</span><br>
+<b>∴ අවම SOP පිළිතුර:</b> <b>Z = YT̄ + XȲ</b> <span class="muted">(4)</span>
+            <div class="box tip" style="margin:8px 0">
+              <b>පරීක්ෂාව (Check) — සත්‍යතා වගුව සමග සසඳන්න</b>
+              • 010 (2): YT̄ = 1·1 = 1 ✓ &nbsp;|&nbsp; • 100 (4): XȲ = 1·1 = 1 ✓ &nbsp;|&nbsp; • 110 (6): YT̄ = 1·1 = 1 ✓ &nbsp;|&nbsp; • 101 (5): XȲ = 1·1 = 1 ✓<br>
+              • 000, 001, 011, 111: YT̄ සහ XȲ දෙකම 0 → Z = 0 ✓
+            </div>
           </div>
-          <div class="m"><b>(b)(iii) පරිපථය:</b> T̄ සහ X̄, Ȳ (inverters මගින්) සාදා ගන්න · AND ද්වාර 3ක්: (X, T̄), (Y, T̄), (X, Ȳ, T) · ඒවායේ ප්‍රතිදාන OR ද්වාරයකට යොමු කරන්න → Z. <span class="muted">(3)</span></div>
+          <div class="m"><b>(b)(iii) පරිපථය:</b> T̄ සහ Ȳ inverters දෙකකින් සාදා ගන්න · <b>AND ද්වාර 2ක්:</b> (Y, T̄) → YT̄ සහ (X, Ȳ) → XȲ · ඒවායේ ප්‍රතිදාන <b>OR ද්වාර 1කට</b> යොමු කරන්න → Z. <span class="muted">(3)</span><br>
+<pre>   X ──┬──[NOT]──Ȳ──┐
+       │            └──[AND]── XȲ ──┐
+       └────────────────────────────┼──[OR]── Z
+   Y ──┬─────────────────[AND]──────┘
+       │                 ▲
+       │   T ──[NOT]──T̄ ─┘</pre>
+          </div>
           <div class="m"><b>(c)</b> S=0, R=1 → <b>Q = 0</b> (Reset) · S=R=0 → <b>පෙර අගයම පවත්වා ගනී (hold)</b> · S=R=1 → <b>අවිනිශ්චිත/තහනම් තත්ත්වයක් (invalid)</b> — Q සහ Q̄ දෙකම එකම අගයක් ගැනීමට උත්සාහ කරයි, ඊළඟ තත්ත්වය පුරෝකථනය කළ නොහැකියි. <span class="muted">(1)</span></div>
         </div>
       </div>
@@ -2197,13 +2206,34 @@ print("වචන ගණන:", words)</pre>(4)</div>
     <p class="qsub" style="padding-left:28px">(ii) <b>D ෆ්ලිප්-ෆ්ලොප්</b> පරිපථයක් රෙජිස්ටරයක් ලෙස භාවිතා වන්නේ මන්දැයි පැහැදිලි කරන්න. <span class="muted">(01)</span></p>
     <div class="ans"><button class="ansbtn" onclick="tog(this)">👁️ ආදර්ශ පිළිතුර</button><div class="ansbody">
       <div class="m"><b>(a)(i)</b> Z=1 වන්නේ (A,B,C) = (0,1,0)=2, (1,0,0)=4, (1,1,1)=7 සඳහා පමණි; අනෙක් සියල්ල = 0. (2)</div>
-      <div class="m"><b>(a)(ii)</b> K-map හි Z=0 වන කොටු (m0, m1, m3, m5, m6) කාණ්ඩ කරන්න (POS සඳහා 0 කාණ්ඩ කරයි).<br>
-        • (m0, m1) → A=0, B=0, C=0/1 → <b>(A + B)</b><br>
-        • (m1, m5) → A=0/1, B=0, C=1 → <b>(B + C̄)</b><br>
-        • (m3, හා m2?) — m2 යනු Z=1 නිසා ඉවත් කරන්න; m3 (0,1,1) සහ m7(1,1,1) → m7 = 1 → m3 සඳහා: (m3, m1) → A=0, C=1 → <b>(A + C̄)</b>; m6 (1,1,0) සඳහා: (m6, m4?) m4 = Z=1 → (m6, m2?) m2 = 1 → m6 සඳහා (m6, m7)? m7=1. එබැවින් m6 තනිවම හෝ (m0,m2)? m2=1. → m6 සඳහා <b>(Ā + B̄ + C)</b><br>
-        <b>∴ Z = (A + B)(B + C̄)(A + C̄)(Ā + B̄ + C)</b> — <span class="muted">සටහන: ඔබේ K-map එකේ කාණ්ඩ පැහැදිලිව අඳින්න; කාණ්ඩ සියලු 0 ආවරණය කළ යුතු අතර හැකිතාක් විශාල විය යුතුයි.</span> (4)
+      <div class="m"><b>(a)(ii)</b> <span class="muted">POS සඳහා <b>Z = 0 වන කොටු</b> (m0, m1, m3, m5, m6) කාණ්ඩ කරයි. සෑම කාණ්ඩයකම 0 වන විචල්‍යය un-complemented ලෙසද, 1 වන විචල්‍යය complemented ලෙසද OR කරයි.</span><br>
+<div class="tw"><table><thead><tr><th>AB \ C</th><th>0</th><th>1</th></tr></thead><tbody>
+<tr><td><b>00</b></td><td>0</td><td>0</td></tr>
+<tr><td><b>01</b></td><td>1</td><td>0</td></tr>
+<tr><td><b>11</b></td><td>0</td><td>1</td></tr>
+<tr><td><b>10</b></td><td>1</td><td>0</td></tr>
+</tbody></table></div>
+        <b>0 කාණ්ඩ:</b><br>
+        ① (m0, m1) → AB = 00, C = 0 සහ 1 (C ඉවත් වේ) → A = 0, B = 0 → <b>(A + B)</b><br>
+        ② (m1, m3) → A = 0, C = 1, B වෙනස් වේ → <b>(A + C̄)</b><br>
+        ③ (m1, m5) → B = 0, C = 1, A වෙනස් වේ → <b>(B + C̄)</b><br>
+        ④ m6 (1,1,0) තනිවම (අසල්වැසි සියල්ල "1" බැවින්) → A=1, B=1, C=0 → <b>(Ā + B̄ + C)</b><br>
+        <span class="muted">සියලු 0 (m0, m1, m3, m5, m6) ආවරණය වේ; සෑම කාණ්ඩයක්ම අත්‍යවශ්‍ය (essential) වේ.</span><br>
+        <b>∴ Z = (A + B)(A + C̄)(B + C̄)(Ā + B̄ + C)</b> <span class="muted">(4)</span>
+        <div class="box tip" style="margin:8px 0">
+          <b>පරීක්ෂාව (Check)</b>
+          • (0,1,0)=2: (A+B)=1, (A+C̄)=1, (B+C̄)=1, (Ā+B̄+C)=1 → Z = 1 ✓<br>
+          • (1,0,0)=4: (A+B)=1, (A+C̄)=1, (B+C̄)=1, (Ā+B̄+C)=1 → Z = 1 ✓<br>
+          • (1,1,1)=7: (A+B)=1, (A+C̄)=1, (B+C̄)=1, (Ā+B̄+C)=1 → Z = 1 ✓<br>
+          • (0,0,0)=0: (A+B)=0 → Z = 0 ✓ &nbsp;|&nbsp; (0,1,1)=3: (A+C̄)=0 → 0 ✓ &nbsp;|&nbsp; (1,0,1)=5: (B+C̄)=0 → 0 ✓ &nbsp;|&nbsp; (1,1,0)=6: (Ā+B̄+C)=0 → 0 ✓
+        </div>
       </div>
-      <div class="m"><b>(a)(iii)</b> සෑම OR ද්වාරයක්ම <b>NAND + NOT (inverter ලෙස NAND)</b> මගින්ද, AND ද්වාරය <b>NAND + NAND inverter</b> මගින්ද ක්‍රියාත්මක කරන්න (De Morgan අනුව). (3)</div>
+      <div class="m"><b>(a)(iii)</b> De Morgan අනුව <b>NAND ද්වාරයක් AND + NOT ලෙසද</b>, ආදාන දෙකම එකට සම්බන්ධ කළ NAND එකක් <b>NOT (inverter)</b> ලෙසද ක්‍රියා කරයි.<br>
+        1. Ā, B̄, C̄ සෑදීමට <b>NAND inverters 3ක්</b> (ආදාන දෙක එකට)<br>
+        2. සෑම OR පදයක්ම → <b>NAND</b> ද්වාරයකින් (ආදාන inverted කර): (A NAND B) = (Ā + B̄) — එබැවින් (A + B) = (Ā NAND B̄), (A + C̄) = (Ā NAND C), (B + C̄) = (B̄ NAND C)<br>
+        3. ඉහත NAND ප්‍රතිදාන 4ම අවසන් <b>NAND</b> ද්වාරයකට යොමු කරන්න: (X NAND Y) = X̄ + Ȳ = (X·Y)̄ → මුලින්ම 4ක් NAND කිරීමෙන් X·Y·Z·W හි complement ලැබෙන බැවින් එය නැවත <b>NAND inverter</b> එකක් හරහා යවන්න → <b>Z = (A + B)(A + C̄)(B + C̄)(Ā + B̄ + C)</b> <span class="muted">(3)</span><br>
+        <span class="muted">විකල්පය: හැම AND/OR/NOT එකක්ම NAND බවට පරිවර්තනය කරන්න — NOT = NAND(1 input tied), AND = NAND + NAND-inverter, OR = 3 NAND (ආදාන දෙකම invert + NAND).</span>
+      </div>
       <div class="m"><b>(b)</b>
 <pre>ĀB + AB̄ + AB
 = ĀB + A(B̄ + B)          [ව්‍යාප්තියේ ප්‍රතිලෝමය]
@@ -2979,6 +3009,7 @@ void loop() {                     // නැවත නැවත
       <button class="chip on" data-f="all">සියල්ල</button>
       <button class="chip" data-f="ict">ICT සංකල්ප</button>
       <button class="chip" data-f="hw">දෘඪාංග/OS</button>
+      <button class="chip" data-f="bool">ඩිජිටල් තර්කනය</button>
       <button class="chip" data-f="net">ජාලකරණය</button>
       <button class="chip" data-f="db">දත්ත සමුදාය</button>
       <button class="chip" data-f="sad">SAD</button>
@@ -3036,11 +3067,11 @@ const CARDS = [
 ["hw","මළ අගුලක් ඇතිවීමට කොන්දේසි 4","අන්‍යෝන්‍ය බැහැර කිරීම, රඳවා ගෙන බලා සිටීම, පූර්ව අයිතියක් නොමැති වීම, චක්‍රීය බලා සිටීම"],
 ["hw","Round Robin හි time quantum කුඩා කළහොත්?","සන්දර්භ මාරුවීම් ගණන වැඩි වී, සැබෑ වැඩට වඩා මාරු කිරීමට කාලය වැය වී කාර්යක්ෂමතාව අඩු වේ"],
 ["hw","1024×768, 24-bit රූපයක ප්‍රමාණය?","1024×768×24 bits = 2,359,296 B = 2304 KB ≈ 2.25 MB"],
-["bool0","(A+B)‾ සහ (A·B)‾ සඳහා ඩි මෝගන්","(A+B)‾ = Ā·B̄  |  (A·B)‾ = Ā + B̄"],
-["bool0","NAND සහ NOR විශ්ව ද්වාර වන්නේ මන්ද?","ඕනෑම තාර්කික පරිපථයක් NAND පමණක් හෝ NOR පමණක් භාවිතයෙන් සෑදිය හැකි නිසා"],
-["bool0","Full Adder හි Sum සහ Cout","Sum = A ⊕ B ⊕ Cin  |  Cout = AB + Cin(A ⊕ B)"],
-["bool0","SR ෆ්ලිප්-ෆ්ලොප්: S=R=1 විට?","අවිනිශ්චිත/තහනම් තත්ත්වයක් (invalid) — Q සහ Q̄ දෙකම එකම අගයට යාමට උත්සාහ කරයි"],
-["bool0","K-map හි 'don't care' (X) හසුරුවන්නේ?","ප්‍රයෝජනයට ගත හැකි නම් 1 ලෙසත්, නැතිනම් 0 ලෙසත් සලකන්න (විශාල කාණ්ඩ සෑදීමට)"],
+["bool","(A+B)‾ සහ (A·B)‾ සඳහා ඩි මෝගන්","(A+B)‾ = Ā·B̄  |  (A·B)‾ = Ā + B̄"],
+["bool","NAND සහ NOR විශ්ව ද්වාර වන්නේ මන්ද?","ඕනෑම තාර්කික පරිපථයක් NAND පමණක් හෝ NOR පමණක් භාවිතයෙන් සෑදිය හැකි නිසා"],
+["bool","Full Adder හි Sum සහ Cout","Sum = A ⊕ B ⊕ Cin  |  Cout = AB + Cin(A ⊕ B)"],
+["bool","SR ෆ්ලිප්-ෆ්ලොප්: S=R=1 විට?","අවිනිශ්චිත/තහනම් තත්ත්වයක් (invalid) — Q සහ Q̄ දෙකම එකම අගයට යාමට උත්සාහ කරයි"],
+["bool","K-map හි 'don't care' (X) හසුරුවන්නේ?","ප්‍රයෝජනයට ගත හැකි නම් 1 ලෙසත්, නැතිනම් 0 ලෙසත් සලකන්න (විශාල කාණ්ඩ සෑදීමට)"],
 ["net","OSI ස්තර 7 (පහළ සිට)","භෞතික → දත්ත සබැඳුම → ජාල → ප්‍රවාහන → සැසි → ඉදිරිපත්කරණ → භාවිත"],
 ["net","TCP/IP ස්තර 4 හා කාර්යය","භාවිත (සේවා) · ප්‍රවාහන (ඛණ්ඩ, විශ්වාසනීයත්වය) · අන්තර්ජාල (රවුටින්ග්, IP) · ජාල ප්‍රවේශ (භෞතික සම්ප්‍රේෂණය)"],
 ["net","TCP හා UDP අතර වෙනස 2","TCP = සම්බන්ධන සහිත, විශ්වාසනීය, මන්දගාමී (HTTP, FTP, SMTP) · UDP = සම්බන්ධන රහිත, වේගවත්, සහතික නැත (DNS, DHCP, VoIP)"],
