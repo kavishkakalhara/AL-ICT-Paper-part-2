@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AL 2026 ICT — දෙවන පත්‍රය (Paper 2) අනුමානය + සම්පූර්ණ කෙටි සටහන්</title>
+<style>
+  :root{
+    --bg:#0b1020; --bg2:#111831; --card:#161e3a; --card2:#1c2749;
+    --line:#2b3760; --txt:#e8ecf7; --muted:#9aa6c8;
+    --acc:#4f8cff; --acc2:#22d3ee; --gold:#ffd166; --green:#34d399; --red:#fb7185; --pink:#f472b6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:'Segoe UI','Noto Sans Sinhala',system-ui,sans-serif;line-height:1.7}
+  a{color:var(--acc2);text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  /* topbar */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;gap:14px;height:56px;overflow-x:auto;white-space:nowrap}
+  .topbar .brand{font-weight:800;color:#fff;font-size:15px}
+  .topbar nav a{padding:6px 10px;border-radius:8px;color:var(--muted);font-size:13px}
+  .topbar nav a:hover{background:var(--card2);color:#fff}
+  /* hero */
+  .hero{padding:44px 0 26px;text-align:center;background:radial-gradient(1200px 400px at 50% -100px, rgba(79,140,255,.25), transparent)}
+  .hero h1{font-size:clamp(22px,4vw,38px);margin:0 0 8px;font-weight:800}
+  .hero p{color:var(--muted);max-width:760px;margin:0 auto}
+  .badge{display:inline-block;background:var(--card2);border:1px solid var(--line);color:var(--gold);padding:3px 12px;border-radius:99px;font-size:12px;font-weight:600}
+  /* sections */
+  section{padding:30px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:24px;margin:0 0 6px}
+  h2 .num{color:var(--acc)}
+  .sub{color:var(--muted);margin:0 0 18px;font-size:14px}
+  h3{font-size:18px;margin:26px 0 10px;color:#fff}
+  h4{font-size:15px;margin:18px 0 8px;color:var(--acc2)}
+  p{margin:8px 0}
+  ul,ol{margin:8px 0;padding-left:22px}
+  li{margin:4px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--card);border:1px solid var(--line)}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card2);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+  .card h3{margin-top:0}
+  /* callout boxes */
+  .box{border-radius:12px;padding:14px 16px;margin:14px 0;border:1px solid}
+  .box p{margin:4px 0}
+  .tip{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.4)}
+  .tip .tt{color:var(--green)}
+  .warn{background:rgba(255,209,102,.08);border-color:rgba(255,209,102,.4)}
+  .warn .tt{color:var(--gold)}
+  .mem{background:rgba(244,114,182,.08);border-color:rgba(244,114,182,.4)}
+  .mem .tt{color:var(--pink)}
+  .math{background:rgba(79,140,255,.08);border-color:rgba(79,140,255,.4)}
+  .math .tt{color:var(--acc)}
+  .draw{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.35)}
+  .draw .tt{color:var(--acc2)}
+  .tt{font-weight:800;font-size:13px;letter-spacing:.5px;text-transform:uppercase}
+  /* steps */
+  .steps{counter-reset:s;margin:10px 0}
+  .step{counter-increment:s;position:relative;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px 14px 10px 46px;margin:8px 0}
+  .step::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  code,.mono{font-family:'Consolas','Menlo',monospace;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;font-size:13px}
+  pre{background:#0a0f22;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:13px;line-height:1.6}
+  pre code{background:none;padding:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .pill{display:inline-block;background:var(--acc);color:#fff;font-weight:700;font-size:12px;padding:2px 10px;border-radius:99px;margin:0 4px 4px 0}
+  .pill.g{background:var(--green)} .pill.o{background:var(--gold);color:#1a1a1a} .pill.r{background:var(--red)}
+  .conf{font-weight:800}
+  .c95{color:var(--green)} .c90{color:var(--green)} .c85{color:var(--gold)} .c80{color:var(--gold)}
+  .toc{columns:2;gap:18px;font-size:14px}
+  @media(max-width:640px){.toc{columns:1}}
+  .toc a{display:block;padding:4px 0;color:var(--muted);border-bottom:1px dashed var(--line)}
+  .toc a:hover{color:var(--acc2)}
+  footer{padding:30px 0 60px;color:var(--muted);font-size:13px;text-align:center}
+  .kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 8px;font-family:Consolas,monospace;background:var(--card2)}
+  .sr-only{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="brand">🎯 ICT 2026</span>
+    <nav>
+      <a href="#predict">අනුමානය</a>
+      <a href="#structure">පත්‍ර ව්‍යුහය</a>
+      <a href="#lessons">පාඩම් 13</a>
+      <a href="#u1">U1</a><a href="#u2">U2</a><a href="#u3">U3</a><a href="#u4">U4</a><a href="#u5">U5</a>
+      <a href="#u6">U6</a><a href="#u7">U7</a><a href="#u8">U8</a><a href="#u9">U9</a><a href="#u10">U10</a>
+      <a href="#u11">U11-13</a><a href="#maths">ගණන් ක්‍රම</a><a href="#draw">ඇඳීම්</a><a href="#tricks">මතක ක්‍රම</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <span class="badge">කවුරුවත් 100%ක් නොකියන රහස — නමුත් pattern එක මෙන්න</span>
+  <h1>AL 2026 ICT — දෙවන පත්‍රය (Paper 2)<br>අනුමානය + සම්පූර්ණ කෙටි සටහන්</h1>
+  <p>සත්‍ය පසුගිය ප්‍රශ්න පත්‍ර (2020–2024) + නිල විෂය නිර්දේශය අධ්‍යයනය කරලා, ප්‍රශ්න පත්‍ර සාදන්නෙක් වගේ හිතලා හදපු guide එක. <b>ලකුණු 100ම ගන්න ඕන හැම දෙයක්ම</b> මෙතන තියෙනවා.</p>
+</div>
+
+<main class="wrap">
+
+<!-- ================= TOC ================= -->
+<section id="toc">
+  <h2><span class="num">00.</span> පිටුවේ ඇති දේ</h2>
+  <div class="toc">
+    <a href="#predict">🔮 2026 ප්‍රශ්න අංකය අනුව අනුමානය</a>
+    <a href="#structure">📋 පත්‍ර ව්‍යුහය</a>
+    <a href="#lessons">📚 පාඩම් 13 නම්</a>
+    <a href="#u1">1️⃣ U1 මූලික සංකල්ප</a>
+    <a href="#u2">2️⃣ U2 පරිණාමය</a>
+    <a href="#u3">3️⃣ U3 දත්ත නිරූපණය</a>
+    <a href="#u4">4️⃣ U4 තාර්කික ද්වාර</a>
+    <a href="#u5">5️⃣ U5 මෙහෙයුම් පද්ධති</a>
+    <a href="#u6">6️⃣ U6 ජාලකරණය</a>
+    <a href="#u7">7️⃣ U7 පද්ධති විශ්ලේෂණය</a>
+    <a href="#u8">8️⃣ U8 දත්ත සමුදාය</a>
+    <a href="#u9">9️⃣ U9 Python</a>
+    <a href="#u10">🔟 U10 වෙබ් සංවර්ධනය</a>
+    <a href="#u11">🌐 U11-13 IoT/ව්‍යාපාර/නව</a>
+    <a href="#maths">🧮 ගණන් කරන universal ක්‍රම</a>
+    <a href="#draw">✏️ ඇඳීම් කරන ක්‍රම</a>
+    <a href="#tricks">🧠 මතක තියාගන්න ක්‍රම</a>
+  </div>
+</section>
+
+<!-- ================= PREDICTION ================= -->
+<section id="predict">
+  <h2><span class="num">01.</span> 🔮 2026ට එන දේ — ප්‍රශ්න අංකය අනුව (අනුමානය)</h2>
+  <p class="sub">පහළ එක ගොඩනගලා තියෙන්නේ 2020–2024 පත්‍ර 5ක් බලලා. "විශ්වාසය" = ඒ question එකට ඒ පාඩම එන සම්භාවිතාව.</p>
+
+  <div class="warn box">
+    <span class="tt">⚠️ අවංක කරුණ</span>
+    <p>විභාග ප්‍රශ්න පත්‍ර **රහස්‍යයි** — හරියටම "මේකම එනවා" කියන්න කාටවත් බෑ. නමුත් ගිය අවුරුදු 5 පුරාම **එන පාඩම් සෙට් එක ස්ථාවරයි**, වෙනස් වෙන්නේ පිළිවෙළ (order) විතරයි. මේ අනුමානය ඒ stability එක මත පදනම්.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 2026 සඳහා අනුමාන වගුව</h3>
+    <table>
+      <thead><tr><th>Q</th><th>කොටස</th><th>පාඩම</th><th>එන මාතෘකා</th><th>විශ්වාසය</th></tr></thead>
+      <tbody>
+        <tr><td><b>1</b></td><td>A</td><td>1 මූලික සංකල්ප</td><td>දත්ත vs තොරතුරු, ජීවන චක්‍රය, වියුක්ත ආකෘතිය, වලංගුකරණය</td><td class="conf c95">95%</td></tr>
+        <tr><td><b>2</b></td><td>A</td><td>7 පද්ධති විශ්ලේෂණය</td><td>SDLC, DFD ඇඳීම, deployment, COTS</td><td class="conf c95">95%</td></tr>
+        <tr><td><b>3</b></td><td>A</td><td>9 Python</td><td>algorithm → pseudocode → code, trace කිරීම</td><td class="conf c95">95%</td></tr>
+        <tr><td><b>4</b></td><td>A</td><td>10 වෙබ්</td><td>HTML form, CSS, JS/PHP (process.php)</td><td class="conf c95">95%</td></tr>
+        <tr><td><b>5</b></td><td>B</td><td>4 තාර්කික ද්වාර</td><td>truth table, K-map, adders, flip-flops</td><td class="conf c90">90%</td></tr>
+        <tr><td><b>6</b></td><td>B</td><td>3 දත්ත නිරූපණය</td><td>පරිවර්තන, 2's complement, ASCII/Unicode</td><td class="conf c85">85%</td></tr>
+        <tr><td><b>7</b></td><td>B</td><td>6 ජාලකරණය</td><td>subnetting, OSI, topologies, devices</td><td class="conf c85">85%</td></tr>
+        <tr><td><b>8</b></td><td>B</td><td>5 මෙහෙයුම් පද්ධති</td><td>process, scheduling, paging, FAT, fragmentation</td><td class="conf c85">85%</td></tr>
+        <tr><td><b>9</b></td><td>B</td><td>8 දත්ත සමුදාය</td><td>ER diagram, normalization, SQL</td><td class="conf c90">90%</td></tr>
+        <tr><td><b>10</b></td><td>B</td><td>11+12+13</td><td>IoT/Arduino, E-commerce, Cloud/AI/Blockchain</td><td class="conf c90">90%</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:13px">💡 <b>B කොටසේ (Q5–Q10) පිළිවෙළ අවුරුද්දෙන් අවුරුද්දට මාරු වෙනවා.</b> උදා: 2022දී Q1=Web, Q2=Systems, Q3=Python; 2023දී Q6=Networking, Q7=IoT, Q9=Database, Q10=OS. ඒත් <b>එන පාඩම් 6 නම් කවදාවත් වෙනස් වෙන්නේ නෑ.</b></p>
+  </div>
+
+  <div class="tip box">
+    <span class="tt">🎯 ලකුණු 100ට කෙටිම මාර්ගය</span>
+    <p><b>A කොටස (Q1–Q4) අනිවාර්යයි = 40ම ගන්න ඕන.</b> මේවා skip කරන්න බෑ. → U1, U7, U9, U10 100% cover කරන්න.</p>
+    <p><b>B කොටසෙන් හොඳම 4 තෝරන්න.</b> බොහෝ දෙනාට ලේසිම + වැඩිම ලකුණු: U4 (Logic), U3 (Data rep), U8 (Database/SQL), U5 (OS). මේ 4 practice කළොත් 60ම ගන්න පුළුවන්.</p>
+  </div>
+</section>
+
+<!-- ================= STRUCTURE ================= -->
+<section id="structure">
+  <h2><span class="num">02.</span> 📋 පත්‍ර ව්‍යුහය (Paper 2 = ලකුණු 100)</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>කාලය + කොටස්</h3>
+      <ul>
+        <li>🕒 <b>පැය 3</b> + විනාඩි 10 කියවීමේ කාලය</li>
+        <li>🅰️ <b>A කොටස (ව්‍යුහගත):</b> Q1–Q4 — <b>4ම අනිවාර්ය</b>, 10 ලකුණු බැගින් = <b>40</b></li>
+        <li>🅱️ <b>B කොටස (රචනා):</b> Q5–Q10 — <b>6න් 4ක් තෝරන්න</b>, 15 ලකුණු බැගින් = <b>60</b></li>
+        <li>✅ <b>මුළු = 100</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>A vs B වෙනස</h3>
+      <ul>
+        <li><b>A කොටස</b> = කුඩා ප්‍රශ්න: හිස් පුරවන්න, කෙටියෙන් ලියන්න, code/HTML/SQL ලියන්න, DFD ඇඳීම.</li>
+        <li><b>B කොටස</b> = ලොකු රචනා + ගණන්: truth table, K-map, subnetting, normalization, ER.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LESSONS ================= -->
+<section id="lessons">
+  <h2><span class="num">03.</span> 📚 පාඩම් 13 — නිල නම් (විෂය නිර්දේශයට හරියටම)</h2>
+  <table>
+    <thead><tr><th>#</th><th>පාඩම (සිංහල)</th><th>English</th><th>කාලය (periods)</th><th>2024 ලකුණු</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>තොරතුරු හා සන්නිවේදන තාක්ෂණයේ මූලික සංකල්ප</td><td>Basic Concepts of ICT</td><td>28</td><td>6.5</td></tr>
+      <tr><td>2</td><td>පරිගණකය හැඳින්වීම (පරිණාමය)</td><td>Introduction to Computer / Evolution</td><td>22</td><td>4</td></tr>
+      <tr><td>3</td><td>දත්ත නිරූපණය</td><td>Data Representation</td><td>18</td><td>6.5</td></tr>
+      <tr><td>4</td><td>අංකිත පරිපථවල මූලිකාංග (තාර්කික ද්වාර)</td><td>Fundamentals of Digital Circuits</td><td>26</td><td>10.5</td></tr>
+      <tr><td>5</td><td>පරිගණක මෙහෙයුම් පද්ධති</td><td>Computer Operating Systems</td><td>22</td><td>8</td></tr>
+      <tr><td>6</td><td>දත්ත සන්නිවේදනය හා ජාලකරණය</td><td>Data Communication &amp; Networking</td><td>50</td><td>14</td></tr>
+      <tr><td>7</td><td>පද්ධති විශ්ලේෂණය හා පිරිසැලසුම</td><td>Systems Analysis &amp; Design</td><td>68</td><td>10.5</td></tr>
+      <tr><td>8</td><td>දත්ත සමුදාය කළමනාකරණය</td><td>Database Management</td><td>50</td><td>14.5</td></tr>
+      <tr><td>9</td><td>ක්‍රමලේඛනය</td><td>Programming (Python)</td><td>74</td><td>19.5</td></tr>
+      <tr><td>10</td><td>වෙබ් අඩවි සංවර්ධනය</td><td>Web Development</td><td>60</td><td>10</td></tr>
+      <tr><td>11</td><td>අන්තර්ජාලය හා බැඳි වස්තු</td><td>Internet of Things (IoT)</td><td>15</td><td>4</td></tr>
+      <tr><td>12</td><td>ව්‍යාපාර තුළ තොරතුරු සන්නිවේදන තාක්ෂණය</td><td>ICT in Business</td><td>12</td><td>3.5</td></tr>
+      <tr><td>13</td><td>තොරතුරු සන්නිවේදන තාක්ෂණයේ නව නැඹුරු සහ අනාගත දිශානති</td><td>New Trends &amp; Future Directions of ICT</td><td>12</td><td>3.5</td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--muted);font-size:13px">14 වෙනි පාඩම = <b>ව්‍යාපෘතිය (Project)</b> — ඒක ලිඛිත විභාගයට එන්නේ නෑ.</p>
+</section>
+
+<!-- ================= U1 ================= -->
+<section id="u1">
+  <h2><span class="num">1️⃣</span> පාඩම 1 — තොරතුරු හා සන්නිවේදන තාක්ෂණයේ මූලික සංකල්ප</h2>
+  <p class="sub">Basic Concepts of ICT · Q1 (A කොටස) · ලකුණු ~10</p>
+
+  <div class="card">
+    <h3>මුලින්ම මතක තියාගන්න core 5</h3>
+    <ol>
+      <li><b>දත්ත (Data)</b> = අමු/සකස් නොකළ සත්‍යයන් (raw facts) → උදා: "75". <b>තොරතුරු (Information)</b> = සකස් කරලා අර්ථයක් ආපු දත්ත → උදා: "පාඩම 3ට ලකුණු 75"</li>
+      <li><b>දත්ත ජීවන චක්‍රය:</b> නිර්මාණය → කළමනාකරණය → අභාවිත දත්ත ඉවත් කිරීම</li>
+      <li><b>වියුක්ත ආකෘතිය (abstract model):</b> ආදාන (Input) → සැකසුම (Process) → ප්‍රතිදාන (Output)</li>
+      <li><b>වටිනා තොරතුරුවල ලක්ෂණ:</b> කාලෝචිත, නිරවද්‍ය, සම්පූර්ණ, අදාළ, අඩු අනිශ්චිතතාව</li>
+      <li><b>දත්ත සැකසීමේ අදියර 5:</b> රැස්කිරීම → වලංගුකරණය → සැකසුම → ප්‍රතිදානය → ගබඩා කිරීම</li>
+    </ol>
+  </div>
+
+  <h4>දත්ත රැස්කිරීමේ (gathering) ක්‍රම — ප්‍රශ්නවල නිතරම එනවා</h4>
+  <table>
+    <thead><tr><th>ක්‍රමය</th><th>කෙටි අදහස</th></tr></thead>
+    <tbody>
+      <tr><td><b>OMR</b></td><td>සලකුණු කරපු කොටු/වෘත්ත කියවනවා (MCQ උත්තර පත්‍ර, survey)</td></tr>
+      <tr><td><b>OCR</b></td><td>අකුරු කියවලා text බවට හරවනවා (scan කරපු documents)</td></tr>
+      <tr><td><b>MICR</b></td><td>චුම්බක තීන්තෙන් ලියපු අකුරු (චෙක්පත්වල පහළ අංක)</td></tr>
+      <tr><td><b>Barcode</b></td><td>ඉරි කේතය — භාණ්ඩ මිල/තොරතුරු</td></tr>
+      <tr><td><b>සංවේදක (sensors)</b></td><td>උෂ්ණත්වය, ආලෝකය, චලිතය වගේ භෞතික දේ මනිනවා (data logger)</td></tr>
+    </tbody>
+  </table>
+
+  <h4>වලංගුකරණය (Validation) — ඇත්තටම එන types 4</h4>
+  <ul>
+    <li><b>Type Check</b> — දත්ත වර්ගය හරිද (ඉලක්කම්/අකුරු)?</li>
+    <li><b>Presence Check</b> — හිස්ව තියලා තියෙනවද?</li>
+    <li><b>Range Check</b> — නියම පරාසය ඇතුළේද? (0–100)</li>
+    <li><b>Format Check</b> — ආකෘතිය හරිද? (දිනය DD/MM/YYYY)</li>
+  </ul>
+  <p style="color:var(--muted);font-size:13px">💡 <b>Verification</b> (දෙපාරක් ඇතුළත් කරලා සසඳනවා) vs <b>Validation</b> (නීතිවලට අනුකූලද) — මේ වෙනස අහනවා.</p>
+
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම — Validation types</span>
+    <p><b>"ටී පී ආර් එෆ්"</b> = <b>T</b>ype · <b>P</b>resence · <b>R</b>ange · <b>F</b>ormat. "අට පිට රිෆ්" කියලා කටපාඩම් කරන්න.</p>
+  </div>
+
+  <div class="tip box">
+    <span class="tt">🎯 ප්‍රශ්න එන විදිය</span>
+    <p>සාමාන්‍යයෙන් A කොටසේ Q1 විදියට: "දත්ත vs තොරතුරු උදාහරණ 2කින්", "ජීවන චක්‍රයේ අදියර නම් කරන්න", "මේ validation type එක මොකක්ද", "ICT යොදන ක්ෂේත්‍ර 3ක් + උදාහරණ" වගේ කෙටි ප්‍රශ්න.</p>
+  </div>
+</section>
+
+<!-- ================= U2 ================= -->
+<section id="u2">
+  <h2><span class="num">2️⃣</span> පාඩම 2 — පරිගණකය හැඳින්වීම (පරිණාමය)</h2>
+  <p class="sub">Introduction to Computer / Evolution of Computers · MCQ-heavy · Paper 2ට බොහෝ විට කෙටි part එකක්</p>
+
+  <div class="card">
+    <h3>Core facts</h3>
+    <ul>
+      <li><b>පරම්පරා 5:</b>
+        <ol>
+          <li>Vacuum tubes (රික්තක නල)</li>
+          <li>Transistors</li>
+          <li>Integrated Circuits (IC)</li>
+          <li>Microprocessors (VLSI)</li>
+          <li>Artificial Intelligence (AI)</li>
+        </ol>
+      </li>
+      <li><b>වොන් නියුමාන් නිර්මිතය:</b> දත්ත + උපදෙස් දෙකම එකම මතකයේ තියන ආකෘතිය; ALU + Control Unit + Memory + I/O.</li>
+      <li><b>මතක ධූරාවලිය (වේගය අනුව):</b> Registers → Cache → Main Memory (RAM) → Secondary (HDD/SSD) → Offline (tape)</li>
+      <li><b>මුවර්ගේ නියමය:</b> chip එකක transistors ගණන සෑම වසර ~2කට වරක් දෙගුණ වෙනවා.</li>
+    </ul>
+  </div>
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම — මතක ධූරාවලිය</span>
+    <p><b>"රෙජි කෑෂ් රෑම් තැටි ටේප්"</b> — උඩට ගියාම වේගය↑ මිල↑, පහළට ගියාම ධාරිතාව↑. එකක් මතක් වුණාම අනිත් ඒවා ඉබේම එනවා.</p>
+  </div>
+</section>
+
+<!-- ================= U3 ================= -->
+<section id="u3">
+  <h2><span class="num">3️⃣</span> පාඩම 3 — දත්ත නිරූපණය (Data Representation)</h2>
+  <p class="sub">B කොටස essay (Q6 area) · ලකුණු ~15 · <b>ගණන් වලින්ම ලකුණු ගන්න පුළුවන් පාඩම</b></p>
+
+  <h3>සංඛ්‍යා පද්ධති 4</h3>
+  <table>
+    <thead><tr><th>පද්ධතිය</th><th>Base</th><th>ඉලක්කම්</th></tr></thead>
+    <tbody>
+      <tr><td>Binary (ද්විමය)</td><td>2</td><td>0,1</td></tr>
+      <tr><td>Octal (අෂ්ටක)</td><td>8</td><td>0–7</td></tr>
+      <tr><td>Decimal (දශම)</td><td>10</td><td>0–9</td></tr>
+      <tr><td>Hexadecimal (ෂඩ්දශම)</td><td>16</td><td>0–9, A(10),B(11),C(12),D(13),E(14),F(15)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය 1 — ඕනම base එකක් → දශම (Decimal)</span>
+    <p>සෑම ඉලක්කමක්ම <b>එහි ස්ථාන අගය (base^position)</b> එකෙන් ගුණ කරලා එකතු කරන්න.</p>
+    <pre><code>උදා: (1011)₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8+0+2+1 = 11</code></pre>
+    <pre><code>උදා: (2F)₁₆ = 2×16¹ + 15×16⁰ = 32 + 15 = 47</code></pre>
+  </div>
+
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය 2 — දශමය → ඕනම base එකක්</span>
+    <p>නැවත නැවත <b>base එකෙන් බෙදලා ඉතුරු (remainders) පහළ සිට උඩට</b> ලියන්න.</p>
+    <div class="steps">
+      <div class="step">25 ÷ 2 = 12, ඉතුරු <b>1</b></div>
+      <div class="step">12 ÷ 2 = 6, ඉතුරු <b>0</b></div>
+      <div class="step">6 ÷ 2 = 3, ඉතුරු <b>0</b></div>
+      <div class="step">3 ÷ 2 = 1, ඉතුරු <b>1</b></div>
+      <div class="step">1 ÷ 2 = 0, ඉතුරු <b>1</b> → නවතිනවා</div>
+      <div class="step">පහළ සිට උඩට: <b>(11001)₂</b> ✅</div>
+    </div>
+  </div>
+
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය 3 — Binary ↔ Octal / Hex (කෙටිම මාර්ගය)</span>
+    <p><b>Octal:</b> binary එක <b>3 bit ගානේ</b> දකුණේ ඉඳන් කඩන්න. <b>Hex:</b> <b>4 bit</b> ගානේ කඩන්න.</p>
+    <pre><code>(110010)₂ → Hex: 0011 0010 = (32)₁₆
+(110010)₂ → Octal: 110 010 = (62)₈</code></pre>
+  </div>
+
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය 4 — ඍණ සංඛ්‍යා (2's Complement) — නිතරම එනවා</span>
+    <p><b>ධන අගය → binary → සියලු bits invert කරන්න → +1 කරන්න.</b></p>
+    <div class="steps">
+      <div class="step">−5 ගන්න 8-bit වලින්. 5 = <code>00000101</code></div>
+      <div class="step">Invert: <code>11111010</code></div>
+      <div class="step">+1: <code>11111011</code> ✅ උත්තරය</div>
+    </div>
+    <p style="color:var(--muted);font-size:13px">💡 <b>1's complement</b> = invert විතරයි (+1 නෑ). <b>Sign &amp; Magnitude</b> = මුල්ම bit එක sign (1=ඍණ), ඉතුරු ඒවා magnitude.</p>
+  </div>
+
+  <h3>අක්ෂර කේතන (Character encoding)</h3>
+  <ul>
+    <li><b>ASCII:</b> ඇමරිකානු සම්මතය, 7-bit (128) / extended 8-bit (256).</li>
+    <li><b>EBCDIC:</b> IBM වල පරණ 8-bit කේතය.</li>
+    <li><b>Unicode:</b> සෑම භාෂාවකම අකුරු cover කරනවා — UTF-8 වැනි.</li>
+  </ul>
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p><b>BCD</b> = එක් එක් decimal ඉලක්කම 4-bit binary වලින්. <b>"ඉලක්කමෙන් ඉලක්කමට 4 bit"</b>.</p>
+    <p>Bit→Byte: <b>8 bit = 1 byte</b>. KB→MB→GB→TB: එක එකක් <b>1024</b> ගුණයක්.</p>
+  </div>
+</section>
+
+<!-- ================= U4 ================= -->
+<section id="u4">
+  <h2><span class="num">4️⃣</span> පාඩම 4 — අංකිත පරිපථ / තාර්කික ද්වාර (Logic Gates)</h2>
+  <p class="sub">B කොටස essay · ලකුණු ~15 · <b>practice කළොත් full marks ගන්නම පුළුවන්</b></p>
+
+  <h3>ද්වාර 7 + ඒවායේ truth tables</h3>
+  <table>
+    <thead><tr><th>Gate</th><th>සිංහල</th><th>අදහස / සූත්‍රය</th><th>අමතක නොවන tip</th></tr></thead>
+    <tbody>
+      <tr><td><b>AND</b></td><td>හා</td><td>A·B — දෙකම 1 නම් විතරක් 1</td><td>ගුණ කිරීම වගේ (0×ඕනම = 0)</td></tr>
+      <tr><td><b>OR</b></td><td>හෝ</td><td>A+B — එකක් හරි 1 නම් 1</td><td>එකතු කිරීම වගේ</td></tr>
+      <tr><td><b>NOT</b></td><td>නොව</td><td>Ā — උඩු යටිකුරු</td><td>inverter</td></tr>
+      <tr><td><b>NAND</b></td><td>—</td><td>NOT of AND</td><td>AND එකේ output එක flip</td></tr>
+      <tr><td><b>NOR</b></td><td>—</td><td>NOT of OR</td><td>OR එකේ output එක flip</td></tr>
+      <tr><td><b>XOR</b></td><td>—</td><td>A⊕B — <b>දෙක වෙනස් නම් 1</b></td><td>"එක්කෙනෙක් 1 නම් 1"</td></tr>
+      <tr><td><b>XNOR</b></td><td>—</td><td>NOT of XOR — <b>දෙක සමාන නම් 1</b></td><td>"සමාන = 1"</td></tr>
+    </tbody>
+  </table>
+
+  <div class="mem box">
+    <span class="tt">🧠 truth table ලියන ක්‍රම (මතකයෙන්ම)</span>
+    <p>2 inputs → පේළි 4: <code>00, 01, 10, 11</code>. 3 inputs → පේළි 8: <code>000…111</code>. ඉලක්කම් 0 සිට උඩට ගණන් කරනවා වගේ.</p>
+    <p><b>AND:</b> 0001 · <b>OR:</b> 0111 · <b>NAND:</b> 1110 · <b>NOR:</b> 1000 · <b>XOR:</b> 0110 · <b>XNOR:</b> 1001</p>
+  </div>
+
+  <h3>Universal gates</h3>
+  <p><b>NAND</b> සහ <b>NOR</b> universal — ඒ දෙකෙන් ඕනම gate එකක් හදන්න පුළුවන්. ප්‍රශ්නේ: "NAND වලින් AND/OR/NOT හදන්න" — මේක අඳින්න පුරුදු වෙන්න.</p>
+
+  <h3>Boolean algebra + De Morgan</h3>
+  <pre><code>De Morgan:  (A+B)' = A'·B'     සහ     (A·B)' = A' + B'</code></pre>
+  <ul>
+    <li><b>SOP</b> = Sum of Products (OR of ANDs) — truth table එකේ <b>1 තියෙන</b> පේළි අරගෙන.</li>
+    <li><b>POS</b> = Product of Sums (AND of ORs) — <b>0 තියෙන</b> පේළි අරගෙන.</li>
+  </ul>
+
+  <div class="math box">
+    <span class="tt">🧮 K-map කරන Universal ක්‍රමය</span>
+    <div class="steps">
+      <div class="step">Variable ගණන අනුව grid එක හදන්න: 2 var → 2×2, 3 var → 2×4, 4 var → 4×4.</div>
+      <div class="step">Truth table එකේ <b>1</b> ටික කොටුවලට දාන්න.</div>
+      <div class="step">අසල්වැසි <b>1</b> ටික <b>2,4,8</b> ගානේ (power of 2) loop කරන්න — විශාලම loop, හැකි තරම් අඩු loop ගණන.</div>
+      <div class="step">එක් එක් loop එකෙන් <b>වෙනස් නොවන variable</b> ටික විතරක් ගන්න (වෙනස් වෙන ඒවා අයින්).</div>
+      <div class="step">Loop terms ටික OR (+) කරලා ලියන්න → සුළු කළ expression.</div>
+    </div>
+  </div>
+
+  <h3>Combinational + Sequential</h3>
+  <ul>
+    <li><b>Half Adder:</b> Sum = A⊕B, Carry = A·B. <b>Full Adder</b> = carry-in එකත් ගන්නවා.</li>
+    <li><b>Flip-flops (SR, JK, D):</b> මතකයක් තියෙනවා (1 bit store). SR: S=1,R=0→Set, S=0,R=1→Reset, S=R=1 invalid.</li>
+    <li><b>Encoder/Decoder, MUX/DEMUX:</b> කෙටි විස්තරයක් + diagram විතරක් මතක තියාගන්න.</li>
+  </ul>
+</section>
+
+<!-- ================= U5 ================= -->
+<section id="u5">
+  <h2><span class="num">5️⃣</span> පාඩම 5 — පරිගණක මෙහෙයුම් පද්ධති (OS)</h2>
+  <p class="sub">B කොටස essay · ලකුණු ~15 · <b>2023දී paging + FAT ආවා — ඒ දිශාවට හොඳටම පාඩම් කරන්න</b></p>
+
+  <h3>OS කාර්යයන් (කෙටියෙන් ලියන්න ඕන)</h3>
+  <ul>
+    <li>මතක කළමනාකරණය · process scheduling · file කළමනාකරණය · device/I/O කළමනාකරණය · ආරක්ෂාව · user interface</li>
+  </ul>
+
+  <h3>Process + Scheduling</h3>
+  <ul>
+    <li><b>PCB (Process Control Block):</b> process එකක් ගැන තොරතුරු (ID, state, registers, memory info) තියෙන block එක.</li>
+    <li><b>Process states:</b> New → Ready → Running → Blocked/Waiting → Terminated</li>
+    <li><b>Scheduling algorithms:</b>
+      <ul>
+        <li><b>FCFS</b> — ආපු පිළිවෙළට</li>
+        <li><b>SJF</b> — කෙටිම job එක මුලින්</li>
+        <li><b>Round Robin</b> — time slice (quantum) එකක් එකක්ට</li>
+        <li><b>Priority</b> — ඉහළම priority එක මුලින්</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="math box">
+    <span class="tt">🧮 Paging — Universal ක්‍රමය (2023 pattern)</span>
+    <p>තාර්කික ලිපිනය = <b>page number + offset</b>. Physical = <b>frame number + offset</b> (offset වෙනස් වෙන්නේ නෑ).</p>
+    <div class="steps">
+      <div class="step">Page size එකෙන් logical address එක බෙදන්න: <b>page = address ÷ pageSize, offset = address % pageSize</b>.</div>
+      <div class="step">Page table එකෙන් ඒ page එකට අදාළ <b>frame number</b> එක හොයන්න.</div>
+      <div class="step">Physical = frame × pageSize + offset.</div>
+    </div>
+    <pre><code>උදා: page size = 4KB, address = 4097 → page = 1, offset = 1
+page 1 → frame 3 නම්, physical = 3×4096 + 1</code></pre>
+    <p style="color:var(--muted);font-size:13px">💡 <b>Fragmentation:</b> Internal = block/page එක ඇතුළේ නාස්ති ඉඩ. External = free ඉඩ කැබලි වෙලා තියෙන එක.</p>
+  </div>
+
+  <div class="math box">
+    <span class="tt">🧮 FAT — File Allocation Table (2023 pattern)</span>
+    <p>FAT entry එකක් = ඊළඟ block number. <b>−1/EOF</b> = file එකේ අවසාන block එක. Directory entry = පළමු block number.</p>
+    <div class="steps">
+      <div class="step">Directory entry එකෙන් මුල් block එක ගන්න.</div>
+      <div class="step">FAT එකෙන් ඒ block එකේ entry එක බලලා ඊළඟ block එක හොයන්න.</div>
+      <div class="step">EOF/−1 හම්බවෙනකම් chain එක යන්න → ඒක තමයි file එකේ block ලැයිස්තුව.</div>
+    </div>
+  </div>
+
+  <h3>OS වර්ග + වෙනත්</h3>
+  <ul>
+    <li>Batch, Time-sharing, Real-time, Distributed, Network, Mobile</li>
+    <li><b>Virtual memory</b> = RAM එක මදි වුණාම disk එකෙන් කොටසක් RAM වගේ පාවිච්චි කිරීම.</li>
+    <li><b>Deadlock</b> = processes දෙකක් එකිනෙකාගේ resources බලාගෙන හිරවෙන තත්ත්වය.</li>
+  </ul>
+</section>
+
+<!-- ================= U6 ================= -->
+<section id="u6">
+  <h2><span class="num">6️⃣</span> පාඩම 6 — දත්ත සන්නිවේදනය හා ජාලකරණය (Networking)</h2>
+  <p class="sub">B කොටස essay · ලකුණු ~14-15 · <b>subnetting එක්ක practice කරන්න</b></p>
+
+  <h3>මූලික සංකල්ප</h3>
+  <ul>
+    <li><b>දිශාවන්:</b> Simplex (එක පැත්තකට), Half-duplex (දෙපැත්තටම, එක වරකට එක), Full-duplex (දෙකම එකවර)</li>
+    <li><b>මාධ්‍ය:</b> Guided (twisted pair, coaxial, fibre) / Unguided (radio, microwave, satellite, Wi-Fi)</li>
+    <li><b>Network වර්ග:</b> PAN, LAN, MAN, WAN</li>
+    <li><b>Topologies:</b> Star, Bus, Ring, Mesh — වාසි/අවාසි 2ක් බැගින් ලියන්න පුළුවන් වෙන්න</li>
+  </ul>
+
+  <h3>උපාංග (device roles) — නිතර එන table</h3>
+  <table>
+    <thead><tr><th>උපාංගය</th><th>කාර්යය</th></tr></thead>
+    <tbody>
+      <tr><td><b>Hub</b></td><td>ආපු signal එක හැම port එකකටම broadcast (layer 1)</td></tr>
+      <tr><td><b>Switch</b></td><td>MAC address බලලා හරි port එකට විතරක් යවනවා (layer 2)</td></tr>
+      <tr><td><b>Router</b></td><td>IP address බලලා network අතර route කරනවා (layer 3)</td></tr>
+      <tr><td><b>Bridge</b></td><td>LAN කොටස් දෙකක් එකතු කරනවා</td></tr>
+      <tr><td><b>Gateway</b></td><td>වෙනස් protocol networks එකතු කරනවා</td></tr>
+      <tr><td><b>Repeater</b></td><td>දුර්වල signal එක amplify කරනවා</td></tr>
+      <tr><td><b>Modem</b></td><td>Digital ↔ Analog හරවනවා</td></tr>
+    </tbody>
+  </table>
+
+  <h3>OSI model — 7 layers (උඩ ඉඳන් පහළට මතකයට)</h3>
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p><b>"All People Seem To Need Data Processing"</b> = <b>A</b>pplication → <b>P</b>resentation → <b>S</b>ession → <b>T</b>ransport → <b>N</b>etwork → <b>D</b>ata link → <b>P</b>hysical.</p>
+  </div>
+
+  <h3>IP addressing + Subnetting — ලොකුම ගණන්</h3>
+  <ul>
+    <li><b>IP</b> = තාර්කික ලිපිනය (network තුළ). <b>MAC</b> = භෞතික ලිපිනය (NIC එකේම තියෙන, වෙනස් කරන්න බෑ).</li>
+    <li><b>CIDR /26</b> = subnet mask <code>255.255.255.192</code> (host bits 6ක්).</li>
+  </ul>
+  <div class="math box">
+    <span class="tt">🧮 Subnetting — Universal ක්‍රමය</span>
+    <div class="steps">
+      <div class="step"><b>Subnet mask / prefix</b> එකෙන් host bits ගණන හොයන්න: /26 → 32−26 = <b>6 host bits</b>.</div>
+      <div class="step"><b>Hosts per subnet = 2⁶ − 2</b> (= 62). (−2 = network + broadcast ලිපින)</div>
+      <div class="step"><b>Subnet ගණන = 2^(ණයට ගත් bit ගණන)</b>. Block size = 2^host bits.</div>
+      <div class="step">Network address = IP එක AND block ගණන්කඩ. Broadcast = subnet එකේ අන්තිම address. Usable = ඒ දෙක අතර.</div>
+    </div>
+    <pre><code>192.168.56.32/26 → block size 64
+Subnets: 192.168.56.0, .64, .128, .192
+.32 කියන්නේ .0 subnet එක ඇතුළේ (network .0, broadcast .63, usable .1–.62)</code></pre>
+  </div>
+
+  <h3>Protocols + switching</h3>
+  <ul>
+    <li><b>TCP</b> — reliable, connection-oriented · <b>UDP</b> — වේගවත්, connectionless</li>
+    <li>HTTP (web), FTP (file), SMTP (mail send), POP3/IMAP (mail receive), DHCP (IP දීම), DNS (නම→IP)</li>
+    <li><b>Circuit switching</b> = කලින්ම path එකක් වෙන් කරනවා (දුරකථන). <b>Packet switching</b> = දත්ත කැබලිවලට කඩලා වෙන වෙනම යවනවා (internet).</li>
+    <li><b>Error detection:</b> Parity bit, Checksum, CRC.</li>
+  </ul>
+</section>
+
+<!-- ================= U7 ================= -->
+<section id="u7">
+  <h2><span class="num">7️⃣</span> පාඩම 7 — පද්ධති විශ්ලේෂණය හා පිරිසැලසුම (Systems Analysis &amp; Design)</h2>
+  <p class="sub">A කොටස Q2 (අනිවාර්ය) · ලකුණු ~10</p>
+
+  <h3>SDLC අදියර 7 (පිළිවෙළ මතක තියාගන්න)</h3>
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p><b>"ෆී ඇන ඩිස් දෙව් ටෙස් ඉම්ප් මේන්"</b> = <b>F</b>easibility → <b>A</b>nalysis → <b>D</b>esign → <b>D</b>evelopment → <b>T</b>esting → <b>I</b>mplementation → <b>M</b>aintenance.</p>
+  </div>
+
+  <h3>ශක්‍යතා අධ්‍යයනය (Feasibility) — TELOS</h3>
+  <ul>
+    <li><b>T</b>echnical — තාක්ෂණිකව කරන්න පුළුවන්ද</li>
+    <li><b>E</b>conomic — මුදල් වාසිදායකද (cost-benefit)</li>
+    <li><b>L</b>egal — නීතිමය</li>
+    <li><b>O</b>perational — සංවිධානයට/සේවකයන්ට ගැලපේද</li>
+    <li><b>S</b>chedule — නියමිත වෙලාවට ඉවර කරන්න පුළුවන්ද</li>
+  </ul>
+
+  <h3>කරුණු රැස්කිරීමේ ක්‍රම 4</h3>
+  <p>Interview (සම්මුඛ) · Questionnaire (ප්‍රශ්නාවලිය) · Observation (නිරීක්ෂණ) · Document review (ලේඛන පරීක්ෂාව)</p>
+
+  <h3>DFD (Data Flow Diagram) — ඇඳීම අනිවාර්ය</h3>
+  <div class="draw box">
+    <span class="tt">✏️ DFD අඳින 4 symbols</span>
+    <ul>
+      <li><b>කවය (Process)</b> — දත්ත සකසන තැන</li>
+      <li><b>ඊතලය (Data flow)</b> — දත්ත ගලායාම</li>
+      <li><b>සෘජුකෝණය (External entity)</b> — පද්ධතියෙන් පිට source/destination (පුද්ගලයෙක්, ආයතනයක්)</li>
+      <li><b>විවෘත සෘජුකෝණය / parallel lines (Data store)</b> — D1, D2 වගේ ගබඩා</li>
+    </ul>
+    <p><b>Level 0 (Context)</b> = මුළු පද්ධතියම එක process එකක්. <b>Level 1</b> = process ටික වෙන් කරලා.</p>
+  </div>
+
+  <h3>Implementation (changeover) ක්‍රම + COTS</h3>
+  <ul>
+    <li><b>Direct</b> — පරණ එක නවත්වලා අලුත් එකම (අවදානම්)</li>
+    <li><b>Parallel</b> — දෙකම ටික කාලයක් එකට (ආරක්ෂිත, මිල අධික)</li>
+    <li><b>Phased</b> — කොටස් වශයෙන්</li>
+    <li><b>Pilot</b> — එක අංශයක මුලින්ම try කරනවා</li>
+  </ul>
+  <p><b>COTS</b> (Commercial Off-The-Shelf) = කඩෙන් ගන්න පුළුවන් සූදානම් මෘදුකාංග. <b>Custom</b> = අවශ්‍යතාවටම හදන එක.</p>
+</section>
+
+<!-- ================= U8 ================= -->
+<section id="u8">
+  <h2><span class="num">8️⃣</span> පාඩම 8 — දත්ත සමුදාය කළමනාකරණය (Database)</h2>
+  <p class="sub">B කොටස essay · ලකුණු ~14.5 · <b>SQL + Normalization = අනිවාර්ය</b></p>
+
+  <h3>Keys</h3>
+  <ul>
+    <li><b>Primary key</b> — record එකක් අනන්‍යව හඳුනන field එක</li>
+    <li><b>Foreign key</b> — වෙනත් table එකක primary key එකට යොමු වෙන field එක</li>
+    <li><b>Composite key</b> — fields කිහිපයක් එකතු වෙලා</li>
+    <li><b>Candidate key</b> — primary key වෙන්න සුදුසුකම් තියෙන හැම එක</li>
+  </ul>
+
+  <h3>ER diagram — අඳින symbols</h3>
+  <ul>
+    <li><b>Entity</b> = සෘජුකෝණය · <b>Attribute</b> = ඉලිප්සය (ellipse) · <b>Relationship</b> = දියමන්තිය (diamond)</li>
+    <li><b>Cardinality:</b> 1:1, 1:M, M:N</li>
+  </ul>
+
+  <h3>Normalization — 1NF → 2NF → 3NF</h3>
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය (step by step)</span>
+    <div class="steps">
+      <div class="step"><b>1NF:</b> සෑම cell එකකම <b>එක atomic value</b> එකයි තියෙන්න ඕන — repeating groups අයින් කරන්න.</div>
+      <div class="step"><b>2NF:</b> 1NF + composite key එකක <b>partial dependency</b> (key එකේ කොටසකට විතරක් රඳා පවතිනවා) අයින් කරන්න.</div>
+      <div class="step"><b>3NF:</b> 2NF + <b>transitive dependency</b> (key නොවන field එකකින් තවත් key නොවන field එකක් රඳා පවතිනවා) අයින් කරන්න.</div>
+    </div>
+  </div>
+
+  <h3>SQL — හැමදාම එන command pattern</h3>
+  <pre><code>SELECT column(s)
+FROM table
+WHERE condition
+ORDER BY column ASC|DESC
+GROUP BY column
+HAVING condition
+LIMIT n;</code></pre>
+  <table>
+    <thead><tr><th>කාර්යය</th><th>SQL</th></tr></thead>
+    <tbody>
+      <tr><td>දත්ත ගන්න</td><td><code>SELECT * FROM Employee WHERE Department='IT';</code></td></tr>
+      <tr><td>ඇතුළත් කරන්න</td><td><code>INSERT INTO Employee VALUES (...);</code></td></tr>
+      <tr><td>වෙනස් කරන්න</td><td><code>UPDATE Employee SET Salary=107000 WHERE Emp_ID='E110';</code></td></tr>
+      <tr><td>මකන්න</td><td><code>DELETE FROM Employee WHERE Emp_ID='E111';</code></td></tr>
+      <tr><td>එකතු කරන්න (table)</td><td><code>CREATE TABLE ...;</code></td></tr>
+    </tbody>
+  </table>
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p>SELECT එකේ order: <b>"S-F-W-G-H-O"</b> = SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY. කටපාඩම්: <b>"සල්ලි ෆ්‍රොම් වෙලාවට ගෙදර හවසට ඕඩර්"</b> 😄</p>
+  </div>
+</section>
+
+<!-- ================= U9 ================= -->
+<section id="u9">
+  <h2><span class="num">9️⃣</span> පාඩම 9 — ක්‍රමලේඛනය (Python)</h2>
+  <p class="sub">A කොටස Q3 (අනිවාර්ය) · <b>බරම පාඩම (19.5)</b> · code ලියලාම practice කරන්න</p>
+
+  <h3>මූලික syntax cheat sheet</h3>
+  <pre><code>x = input("Enter number: ")      # input = string එකක්
+n = int(x)                        # integer එකට හරවනවා
+print("Hello", n)
+
+if n > 0:
+    print("Positive")
+elif n == 0:
+    print("Zero")
+else:
+    print("Negative")
+
+for i in range(10):               # 0..9
+    print(i)
+
+while n > 0:
+    n = n - 1
+
+def add(a, b):                    # function
+    return a + b</code></pre>
+
+  <h3>නිතර එන patterns</h3>
+  <table>
+    <thead><tr><th>Pattern</th><th>Code</th></tr></thead>
+    <tbody>
+      <tr><td>එකතුව</td><td><code>total += num</code> (loop එකක් ඇතුළේ)</td></tr>
+      <tr><td>සාමාන්‍යය</td><td><code>average = total / count</code></td></tr>
+      <tr><td>list</td><td><code>nums = [1,2,3] · nums.append(4) · len(nums)</code></td></tr>
+      <tr><td>file read</td><td><code>f = open("a.txt","r") → f.readline() / for line in f → f.close()</code></td></tr>
+      <tr><td>file write</td><td><code>f = open("a.txt","w") → f.write("hi") → f.close()</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Algorithm → Pseudocode → Code (ප්‍රශ්න රටාව)</h3>
+  <div class="math box">
+    <span class="tt">🧮 Universal ක්‍රමය</span>
+    <div class="steps">
+      <div class="step">ගැටලුව කියවලා <b>input / process / output</b> හඳුනාගන්න.</div>
+      <div class="step"><b>Pseudocode</b> (සාමාන්‍ය වචනවලින්) ලියන්න: START → steps → END.</div>
+      <div class="step"><b>Flowchart</b> අඳින්න ඕන නම්: Oval = start/end, parallelogram = input/output, rectangle = process, diamond = decision.</div>
+      <div class="step">Python code එකට හරවන්න (indentation හරියට!).</div>
+      <div class="step">Trace කරන්න: variable එකකට table එකක් හදලා එක එක line එක ක්‍රියාත්මක කරලා අගය ලියන්න.</div>
+    </div>
+  </div>
+
+  <div class="warn box">
+    <span class="tt">⚠️ නිතර වැරදෙන දේවල්</span>
+    <ul>
+      <li><code>input()</code> එක string — ගණන් කරන්න <code>int()</code> කරන්න ඕන.</li>
+      <li>Python indent (4 spaces) එක තමයි block එක — අමතක කරන්න එපා.</li>
+      <li><code>range(n)</code> = 0 සිට n−1 දක්වා (n ඇතුළත් නෑ!).</li>
+      <li>Loop වල variables initialize කරන්න (<code>total = 0</code>) loop එකට කලින්.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= U10 ================= -->
+<section id="u10">
+  <h2><span class="num">🔟</span> පාඩම 10 — වෙබ් අඩවි සංවර්ධනය (HTML/CSS/JS/PHP)</h2>
+  <p class="sub">A කොටස Q4 (අනිවාර්ය) · <b>2022දී හරියටම HTML form + PHP process.php ආවා</b></p>
+
+  <h3>HTML — form එකක් හදන full pattern</h3>
+  <pre><code>&lt;form action="process.php" method="post"&gt;
+  &lt;input type="text" name="name" /&gt;               &lt;!-- text --&gt;
+  &lt;input type="checkbox" name="module[]" value="ICT" /&gt;  &lt;!-- checkbox --&gt;
+  &lt;input type="radio" name="language" value="Sinhala" /&gt; &lt;!-- radio (එකක් විතරක්) --&gt;
+  &lt;select name="Center"&gt;                             &lt;!-- dropdown --&gt;
+    &lt;option value="Colombo" selected&gt;Colombo&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;input type="submit" value="submit" /&gt;
+&lt;/form&gt;</code></pre>
+  <ul>
+    <li><code>action</code> = යවන ගොනුව · <code>method</code> = get/post</li>
+    <li>checkbox = බහු තේරීම · radio = එක තේරීම (name එක සමාන)</li>
+    <li>table: <code>&lt;table&gt;&lt;tr&gt;&lt;td&gt;</code> · link: <code>&lt;a href="..."&gt;</code> · image: <code>&lt;img src="..."&gt;</code></li>
+  </ul>
+
+  <h3>CSS — 3 විදිය</h3>
+  <ul>
+    <li><b>Inline:</b> <code>&lt;p style="color:red"&gt;</code></li>
+    <li><b>Internal:</b> <code>&lt;style&gt;</code> tag එක head ඇතුළේ</li>
+    <li><b>External:</b> <code>&lt;link rel="stylesheet" href="style.css"&gt;</code></li>
+    <li>Selectors: <code>#id</code> (එක element) · <code>.class</code> (බොහෝ) · <code>tag</code></li>
+  </ul>
+
+  <h3>JavaScript / PHP — form data ගන්න</h3>
+  <pre><code>// JavaScript
+function check(){
+  var n = document.getElementById("name").value;
+  if(n == ""){ alert("Name required"); return false; }
+  return true;   // form submit වෙනවා
+}
+
+// PHP (process.php)
+$name = $_POST["name"];      // post method
+$name = $_GET["name"];       // get method
+echo $name;</code></pre>
+
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p>PHP: <b>POST</b> → <code>$_POST["..."]</code>, <b>GET</b> → <code>$_GET["..."]</code>. "මොනවද form එකේ method එක, ඒකම PHP එකේ".</p>
+  </div>
+</section>
+
+<!-- ================= U11-13 ================= -->
+<section id="u11">
+  <h2><span class="num">🌐</span> පාඩම් 11, 12, 13 — IoT + ව්‍යාපාර ICT + නව ප්‍රවණතා</h2>
+  <p class="sub">B කොටස Q10 (මිශ්‍ර රචනාව) · ලකුණු ~15</p>
+
+  <div class="card">
+    <h3>පාඩම 11 — IoT (Internet of Things)</h3>
+    <ul>
+      <li><b>IoT</b> = අන්තර්ජාලයට සම්බන්ධ වෙච්ච උපාංග එකිනෙකා සමඟ දත්ත හුවමාරු කරනවා.</li>
+      <li><b>Sensors (ආදාන):</b> PIR (චලිතය), temperature, light, humidity, proximity</li>
+      <li><b>Actuators (ප්‍රතිදාන):</b> LED, motor, buzzer, relay</li>
+      <li><b>Microcontroller:</b> Arduino, Raspberry Pi</li>
+      <li><b>සන්නිවේදනය:</b> Wi-Fi, Bluetooth, RFID, NFC, Zigbee</li>
+      <li>යෙදුම්: smart home, smart farming, smart health, industrial automation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>පාඩම 12 — ව්‍යාපාර තුළ ICT</h3>
+    <ul>
+      <li><b>E-commerce models:</b> B2B (ව්‍යාපාර↔ව්‍යාපාර), B2C (ව්‍යාපාර→පාරිභෝගික), C2C (පාරිභෝගික↔පාරිභෝගික)</li>
+      <li><b>E-business</b> = මුළු ව්‍යාපාර ක්‍රියාවලියම ඩිජිටල් කිරීම (E-commerceට වඩා පුළුල්)</li>
+      <li><b>EDI</b> — Electronic Data Interchange (ලේඛන ඉලෙක්ට්‍රොනිකව හුවමාරුව)</li>
+      <li><b>ERP</b> — Enterprise Resource Planning · <b>CRM</b> — Customer Relationship Management</li>
+      <li><b>E-payment:</b> credit card, mobile payment, internet banking, digital wallet</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>පාඩම 13 — නව ප්‍රවණතා</h3>
+    <ul>
+      <li><b>Cloud computing:</b> IaaS (යටිතල), PaaS (platform), SaaS (software)</li>
+      <li><b>Big Data</b> · <b>AI / Machine Learning</b> · <b>Blockchain</b> · <b>5G</b> · <b>AR/VR</b> · <b>Robotics</b></li>
+      <li>එක එකකට කෙටි නිර්වචනයක් + යෙදුමක් ලියන්න පුළුවන් වෙන්න.</li>
+    </ul>
+  </div>
+
+  <div class="mem box">
+    <span class="tt">🧠 මතක ක්‍රම</span>
+    <p>Cloud 3: <b>"I-P-S"</b> = <b>I</b>aaS (infra) → <b>P</b>aaS (platform) → <b>S</b>aaS (software). "ඉන්න පුළුවන් සෝදිසි" — ඉන්ෆ්‍රා, ප්ලැට්ෆෝම්, සොෆ්ට්වෙයා.</p>
+    <p>E-commerce: <b>B2B, B2C, C2C</b> — "B-B, B-C, C-C" යුගල මතකයි.</p>
+  </div>
+</section>
+
+<!-- ================= MATHS ================= -->
+<section id="maths">
+  <h2><span class="num">🧮</span> ගණන් කරන Universal ක්‍රම (හැමදාම වැඩ කරන)</h2>
+  <p class="sub">පහළ methods ටික ඕනම ප්‍රශ්නයකට වැඩ කරන step-by-step ක්‍රම. සෑම step එකක්ම ලියන්න — steps වලට ලකුණු!</p>
+
+  <div class="card">
+    <h3>1. Number base පරිවර්තන</h3>
+    <p>🅰️ <b>ඕනම base → Decimal:</b> ඉලක්කම × base^position එකතු කරන්න.<br>
+    🅱️ <b>Decimal → ඕනම base:</b> බෙදලා ඉතුරු පහළ-සිට-උඩට.<br>
+    🅲️ <b>Binary → Octal (3-bit) / Hex (4-bit):</b> කඩලා කොටස්වල අගය ලියන්න.</p>
+  </div>
+
+  <div class="card">
+    <h3>2. 2's Complement (ඍණ සංඛ්‍යා)</h3>
+    <p>ධන අගය → binary → <b>invert → +1</b>. අනිත් ක්‍රම 2: 1's complement = invert only; Sign &amp; Magnitude = මුල් bit = sign.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. K-map</h3>
+    <p>1 ටික grid එකට → 2/4/8 ගානේ loop → එක loop එකකින් <b>වෙනස් නොවන variables</b> → OR කරන්න.</p>
+  </div>
+
+  <div class="card">
+    <h3>4. Subnetting</h3>
+    <p>host bits = 32 − prefix → hosts = 2^bits − 2 → block size = 2^bits → network/broadcast/usable ලිපින හොයන්න.</p>
+  </div>
+
+  <div class="card">
+    <h3>5. Paging (OS)</h3>
+    <p>page = address ÷ pageSize, offset = address % pageSize → page table එකෙන් frame → physical = frame×size + offset.</p>
+  </div>
+
+  <div class="card">
+    <h3>6. FAT</h3>
+    <p>directory → මුල් block → FAT chain → EOF/−1 දක්වා.</p>
+  </div>
+
+  <div class="card">
+    <h3>7. Normalization</h3>
+    <p>1NF (atomic) → 2NF (partial dependency අයින්) → 3NF (transitive dependency අයින්).</p>
+  </div>
+
+  <div class="card">
+    <h3>8. Python trace</h3>
+    <p>Variable table එකක් හදලා, line-by-line අගයන් update කරන්න. Loop ගණන් (range) පරිස්සමෙන්.</p>
+  </div>
+</section>
+
+<!-- ================= DRAW ================= -->
+<section id="draw">
+  <h2><span class="num">✏️</span> ඇඳීම් (Diagrams) — ලකුණු ගන්න ලේසිම තැන</h2>
+  <div class="tip box">
+    <span class="tt">🎯 රීතිය</span>
+    <p>Diagram එකකට ලකුණු විශාලයි. අඳිනකොට <b>label</b> හරියට දාන්න. මේවා අතින් අඳින්න පුරුදු වෙන්න:</p>
+  </div>
+  <ul>
+    <li><b>Logic gates:</b> AND, OR, NOT, NAND, NOR, XOR, XNOR symbols + NAND වලින් AND/OR/NOT</li>
+    <li><b>Half/Full Adder</b> circuit</li>
+    <li><b>Flip-flops (SR, JK, D)</b></li>
+    <li><b>DFD Level 0 + Level 1</b> (process, data store, external entity, flow)</li>
+    <li><b>ER diagram</b> (entity, attribute, relationship + cardinality)</li>
+    <li><b>Flowchart</b> (oval, parallelogram, rectangle, diamond)</li>
+    <li><b>Network topologies</b> (star, bus, ring, mesh)</li>
+    <li><b>OSI model</b> (7 layers)</li>
+    <li><b>මතක ධූරාවලිය</b> + <b>වොන් නියුමාන්</b> + <b>වියුක්ත ආකෘතිය</b></li>
+  </ul>
+</section>
+
+<!-- ================= TRICKS ================= -->
+<section id="tricks">
+  <h2><span class="num">🧠</span> මතක තියාගන්න ක්‍රම (Memory tricks) — සම්පූර්ණ ලැයිස්තුව</h2>
+  <table>
+    <thead><tr><th>මතක තියාගන්න දේ</th><th>Trick</th></tr></thead>
+    <tbody>
+      <tr><td>Validation types</td><td><b>Type-Presence-Range-Format</b></td></tr>
+      <tr><td>මතක ධූරාවලිය</td><td>Registers → Cache → RAM → Disk → Tape</td></tr>
+      <tr><td>SDLC 7</td><td>Feasibility→Analysis→Design→Develop→Test→Implement→Maintain</td></tr>
+      <tr><td>Feasibility TELOS</td><td>Technical·Economic·Legal·Operational·Schedule</td></tr>
+      <tr><td>OSI 7 layers</td><td><b>"All People Seem To Need Data Processing"</b></td></tr>
+      <tr><td>Logic gates truth</td><td>AND=0001, OR=0111, XOR=0110, XNOR=1001</td></tr>
+      <tr><td>De Morgan</td><td>(A+B)' = A'B' · (AB)' = A'+B'</td></tr>
+      <tr><td>XOR</td><td>දෙක වෙනස් නම් 1</td></tr>
+      <tr><td>SQL order</td><td>SELECT→FROM→WHERE→GROUP BY→HAVING→ORDER BY</td></tr>
+      <tr><td>Normalization</td><td>1NF atomic · 2NF partial අයින් · 3NF transitive අයින්</td></tr>
+      <tr><td>Cloud</td><td>IaaS → PaaS → SaaS</td></tr>
+      <tr><td>2's complement</td><td>invert + 1</td></tr>
+      <tr><td>Decimal→binary</td><td>බෙදලා ඉතුරු පහළ-සිට-උඩට</td></tr>
+      <tr><td>Binary→Hex/Octal</td><td>4-bit / 3-bit කඩන්න</td></tr>
+      <tr><td>E-commerce</td><td>B2B · B2C · C2C</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn box">
+    <span class="tt">⚠️ අවසාන උපදෙස</span>
+    <p>මේ guide එක අනුමානයක් + අධ්‍යයන මාර්ගෝපදේශයක් පමණයි — <b>කිසිම ලිඛිත ප්‍රශ්න කාන්දුවක් නෙවෙයි.</b> නියම රහස: <b>විෂය නිර්දේශයේ හැම අන්තර්ගතයක්ම cover කරන්න + පසුගිය ප්‍රශ්න පත්‍ර 5ක්වත් time අරගෙන ලියන්න.</b> එතකොට pattern එක ඔයාටම ඉබේම පේනවා. හොඳට පාඩම් කරන්න! 💪</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>මෙය අනුමානයක් + අධ්‍යයන මාර්ගෝපදේශයක් පමණි. නිල ප්‍රශ්න පත්‍රය වෙනස් විය හැක. විෂය නිර්දේශය + පසුගිය පත්‍ර අනුව සකස් කරන ලදී.</p>
+</footer>
+</body>
+</html>
